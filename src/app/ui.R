@@ -5,7 +5,6 @@ library(DT)
 library(plotly)
 library(shinydashboard)
 library(ggplot2)
-library(grDevices)
 
 dashboardPage(title = "Wines",
   dashboardHeader(
