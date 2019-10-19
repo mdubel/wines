@@ -1,6 +1,5 @@
 import("shiny")
 import("DT")
-import("plotly")
 import("modules")
 import("shinydashboard")
 
@@ -33,6 +32,7 @@ server <- function(input, output, session) {
       selection = 'none',
       options = list(
         dom = 'tB',
+        pageLength = 20,
         buttons = c('copy', 'csv', 'excel', 'pdf'),
         ordering = TRUE
       )

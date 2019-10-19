@@ -35,6 +35,10 @@
   white-space: nowrap !important;
 }
 
+#group_plot-groupselection {
+  font-size: large !important;
+}
+
 #sidebarCollapsed {
   background-color: #ffffff !important;
   border-right: 3px solid #7bbc48 !important;

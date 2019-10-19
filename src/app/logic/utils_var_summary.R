@@ -17,6 +17,10 @@ selectNumericColumnNames <- function(dataset) {
   return(numeric_column_names %>% .[!is.na(.)])
 }
 
+selectNonNumericColumnNames <- function(dataset) {
+  setdiff(names(dataset), selectNumericColumnNames(dataset))[1:2] # no more than two please
+}
+
 prepareCleanNumVarNames <- function(dataset) {
   clean_names <- selectNumericColumnNames(dataset) %>% gsub(".", " ", ., fixed = TRUE)
   return(clean_names)
