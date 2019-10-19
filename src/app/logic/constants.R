@@ -1,1 +1,1 @@
-DATA <- utils::read.csv("./data/wines.csv", stringsAsFactors = FALSE, sep = ";")
+DATA <- utils::read.csv(paste0("./data/", list.files("./data/")[1]), stringsAsFactors = FALSE, sep = ";")
