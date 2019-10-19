@@ -69,12 +69,16 @@ server <- function(input, output, session,
         theme(legend.position = "bottom")
     )
     
+    corr_title <- paste0("Correlation: ",
+                         scatter_plot$getCorrelationForVars(CONSTS$DATA, input$var2selection, input$var1selection))
+    
     # NOTE: x is var2, y is var1 as it is more intuitive on plot
     ggplot(CONSTS$DATA,
            aes(x = CONSTS$DATA[[input$var2selection]],
                y = CONSTS$DATA[[input$var1selection]])) +
       geom_point(alpha = 0.2, colour = '#3c8dbc') +
-      labs(x = input$var2selection,
+      labs(title = corr_title,
+           x = input$var2selection,
            y = input$var1selection)
     
   })

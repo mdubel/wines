@@ -103,19 +103,19 @@ server <- function(input, output, session) {
     )
     
     grouped_data <- CONSTS$DATA
-    grouped_data$groups <- paste(CONSTS$DATA[[input$groupselection[1]]], CONSTS$DATA[[input$groupselection[2]]])
-    group_count <- length(unique(grouped_data$groups))
+    grouped_data$group <- paste(CONSTS$DATA[[input$groupselection[1]]], CONSTS$DATA[[input$groupselection[2]]])
+    group_count <- length(unique(grouped_data$group))
     
     if(input$histogramtype == "histogram") {
       g <- ggplot(grouped_data, aes(x = grouped_data[[input$varselection]])) +
-        geom_histogram(aes(color = groups, fill = groups), 
+        geom_histogram(aes(color = group, fill = group), 
                        position = "identity", bins = 30, alpha = 0.2)
     } else if(input$histogramtype == "density") {
-      g <- ggplot(grouped_data, aes(x = grouped_data[[input$varselection]], fill = groups)) +
-        geom_density(alpha = 0.2)
+      g <- ggplot(grouped_data, aes(x = grouped_data[[input$varselection]])) +
+        geom_density(alpha = 0.2, aes(color = group, fill = group))
     }
     
-    ggplotly(g) %>% 
+    ggplotly(g, tooltip = c("y", "color")) %>% 
     layout(legend = list(x = 0.9, y = 0.9), xaxis = list(title = ""), yaxis = list(title = "")) %>%
       config(displayModeBar = FALSE)
   })
