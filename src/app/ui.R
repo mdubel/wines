@@ -1,19 +1,10 @@
-library(shiny)
-library(shinyWidgets)
-library(dplyr)
-library(DT)
-library(plotly)
-library(shinydashboard)
-library(ggplot2)
-
 dashboardPage(title = "Wines",
   dashboardHeader(
     title = 'Wines',
     titleWidth = 150
   ),
   dashboardSidebar(
-    width = 0,
-    sidebar$ui("sidebar")
+    width = 0
   ),
   dashboardBody(
     tags$head(

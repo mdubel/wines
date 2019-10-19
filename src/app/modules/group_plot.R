@@ -3,7 +3,6 @@ import("plotly")
 import("modules")
 import("shinydashboard")
 import("ggplot2")
-import("grDevices")
 
 export("ui")
 export("init_server")

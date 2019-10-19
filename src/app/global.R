@@ -1,7 +1,10 @@
-library(shiny)
 library(modules)
-
-sidebar <- use("modules/sidebar.R")
+library(shiny)
+library(dplyr)
+library(DT)
+library(plotly)
+library(shinydashboard)
+library(ggplot2)
 
 file_summary <- use("modules/file_summary.R")
 var_summary <- use("modules/var_summary.R")
