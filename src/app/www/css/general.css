@@ -10,9 +10,19 @@
   background-color: #ffffff;
 }
 
+.selectize-input {
+  max-height: 35px important;
+}
+
 .logo {
   background-color: #ffffff !important;
-  border-right: 3px solid #7bbc48 !important;
+  border-bottom: 3px solid #7bbc48 !important;
+  color: #7bbc48 !important;
+  font-weight: bold !important;
+}
+
+.sidebar-toggle {
+  display: none !important;
 }
 
 .box {
@@ -31,20 +41,18 @@
   background-color: #ffffff !important;
 }
 
+#file_summary-filesummary tbody {
+  font-size: 20px !important;
+}
+
+#group_plot-histogramtype {
+  padding-top: 4px !important;
+}
+
 #var_summary-varsummary {
   white-space: nowrap !important;
 }
 
 #group_plot-groupselection {
   font-size: large !important;
-}
-
-#sidebarCollapsed {
-  background-color: #ffffff !important;
-  border-right: 3px solid #7bbc48 !important;
-}
-
-#sidebarCollapsed .col-sm-12 {
-  color: black;
-  padding-top: 10px !important;
 }

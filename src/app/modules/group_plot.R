@@ -20,7 +20,7 @@ ui <- function(id) {
              offset = 1,
              uiOutput(ns("varselection"))),
       column(width = 2,
-             tags$h4("group by", style = "padding-top: 20px;")),
+             tags$h4("group by", style = "padding-top: 20px; text-align: center;")),
       column(width = 3,
              uiOutput(ns("groupselection"))),
       column(width = 3,
@@ -83,7 +83,7 @@ server <- function(input, output, session) {
   output$histogramtype <- renderUI({
     radioButtons(
       inputId = ns("histogramtype"),
-      label = NULL,
+      label = "",
       choices = c("histogram", "density"),
       selected = "histogram",
       inline = TRUE
@@ -105,26 +105,19 @@ server <- function(input, output, session) {
     grouped_data <- CONSTS$DATA
     grouped_data$groups <- paste(CONSTS$DATA[[input$groupselection[1]]], CONSTS$DATA[[input$groupselection[2]]])
     group_count <- length(unique(grouped_data$groups))
-    g <- ggplot(grouped_data, aes(x = grouped_data[[input$varselection]])) +
-      geom_histogram(aes(color = groups, fill = groups), 
-                     position = "identity", bins = 30, alpha = 0.2) +
-      scale_color_manual(values = rainbow(group_count)) +
-      scale_fill_manual(values = rainbow(group_count))
+    
+    if(input$histogramtype == "histogram") {
+      g <- ggplot(grouped_data, aes(x = grouped_data[[input$varselection]])) +
+        geom_histogram(aes(color = groups, fill = groups), 
+                       position = "identity", bins = 30, alpha = 0.2)
+    } else if(input$histogramtype == "density") {
+      g <- ggplot(grouped_data, aes(x = grouped_data[[input$varselection]], fill = groups)) +
+        geom_density(alpha = 0.2)
+    }
     
     ggplotly(g) %>% 
     layout(legend = list(x = 0.9, y = 0.9), xaxis = list(title = ""), yaxis = list(title = "")) %>%
       config(displayModeBar = FALSE)
-    ####
-    # diamonds1 <- diamonds[which(diamonds$cut == "Fair"),]
-    # density1 <- density(diamonds1$carat)
-    # 
-    # diamonds2 <- diamonds[which(diamonds$cut == "Ideal"),]
-    # density2 <- density(diamonds2$carat)
-    # 
-    # p <- plot_ly(x = ~density1$x, y = ~density1$y, type = 'scatter', mode = 'lines', name = 'Fair cut', fill = 'tozeroy') %>%
-    #   add_trace(x = ~density2$x, y = ~density2$y, name = 'Ideal cut', fill = 'tozeroy') %>%
-    #   layout(xaxis = list(title = 'Carat'),
-    #          yaxis = list(title = 'Density'))
   })
   
 }
