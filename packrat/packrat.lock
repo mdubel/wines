@@ -153,7 +153,7 @@ Requires: htmltools, jsonlite, yaml
 Package: httpuv
 Source: CRAN
 Version: 1.5.2
-Hash: 02c5d6690357a7f768329bb7449ab5e6
+Hash: bedc97351732877695aa0f20e32d6ad9
 Requires: BH, R6, Rcpp, later, promises
 
 Package: httr
@@ -260,7 +260,7 @@ Hash: 77da8f1df873a4b91e5c4a68fe2fb1b6
 Package: promises
 Source: CRAN
 Version: 1.1.0
-Hash: 30897003fae714a3848f346fba11c3d9
+Hash: 0404586e7e8dff0de5fde4a65f37e39b
 Requires: R6, Rcpp, later, magrittr, rlang
 
 Package: purrr
@@ -292,6 +292,12 @@ Version: 1.4.0
 Hash: 7a1d8725849ecb792b4df2c084769c23
 Requires: R6, crayon, digest, fastmap, htmltools, httpuv, jsonlite,
     later, mime, promises, rlang, sourcetools, xtable
+
+Package: shinycustomloader
+Source: CRAN
+Version: 0.9.0
+Hash: 536dc6bddbb873e922d5b6ad7560d8c2
+Requires: glue, shiny
 
 Package: shinydashboard
 Source: CRAN

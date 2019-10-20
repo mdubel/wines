@@ -3,6 +3,7 @@ import("plotly")
 import("modules")
 import("shinydashboard")
 import("ggplot2")
+import("shinycustomloader")
 
 export("ui")
 export("init_server")
@@ -27,9 +28,11 @@ ui <- function(id) {
     ),
     fluidRow(
       column(width = 6,
-             plotlyOutput(ns("boxplot"))),
+             withLoader(plotlyOutput(ns("boxplot")), type = "html", loader = "loader4")
+      ),
       column(width = 6,
-             plotlyOutput(ns("histogramdensityplot")))
+             withLoader(plotlyOutput(ns("histogramdensityplot")), type = "html", loader = "loader4")
+      )
     )
   )
 }

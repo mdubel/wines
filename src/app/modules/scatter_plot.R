@@ -4,6 +4,7 @@ import("plotly")
 import("modules")
 import("shinydashboard")
 import("ggplot2")
+import("shinycustomloader")
 
 export("ui")
 export("init_server")
@@ -24,7 +25,8 @@ ui <- function(id) {
     ),
     fluidRow(
       column(width = 12,
-             plotOutput(ns("scatterplot"), height = '150px'))
+             withLoader(plotOutput(ns("scatterplot"), height = '150px'), type = "html", loader = "loader4")
+      )
     )
   )
 }

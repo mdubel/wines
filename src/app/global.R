@@ -5,6 +5,7 @@ library(DT)
 library(plotly)
 library(shinydashboard)
 library(ggplot2)
+library(shinycustomloader)
 
 file_summary <- use("modules/file_summary.R")
 var_summary <- use("modules/var_summary.R")
