@@ -12,3 +12,4 @@ In order to reproduce the exact working environment use `source("./setup.R")` wi
 
 To open app then run `runApp("./src/app")` with this project as a working directory.
 
+Run `source("./src/tests/testthat.R")` in project working directory in order to run unit tests
